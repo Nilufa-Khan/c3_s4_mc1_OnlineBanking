@@ -1,16 +1,22 @@
 package data;
 
-public class Account {
+public abstract class Account {
 private long accountNumber;
 private String accountHolderName;
 private double accountBalance;
 private String accountStatus;
+private String account_OpeningDate;
+private String modeOfOperation;
+public boolean internet_Banking;
 
-    public Account(long accountNumber, String accountHolderName, double accountBalance, String accountStatus) {
+    public Account(long accountNumber, String accountHolderName, double accountBalance, String accountStatus, String account_OpeningDate, String modeOfOperation, boolean internet_Banking) {
         this.accountNumber = accountNumber;
         this.accountHolderName = accountHolderName;
         this.accountBalance = accountBalance;
         this.accountStatus = accountStatus;
+        this.account_OpeningDate = account_OpeningDate;
+        this.modeOfOperation = modeOfOperation;
+        this.internet_Banking = internet_Banking;
     }
 
     public long getAccountNumber() {
@@ -44,10 +50,30 @@ private String accountStatus;
     public void setAccountStatus(String accountStatus) {
         this.accountStatus = accountStatus;
     }
-    public void display1(){
-        System.out.println("accountNumber = " + accountNumber);
-        System.out.println("accountHolderName = " + accountHolderName);
-        System.out.println("accountBalance = " + accountBalance);
-        System.out.println("accountStatus = " + accountStatus);
+
+    public String getAccount_OpeningDate() {
+        return account_OpeningDate;
     }
+
+    public void setAccount_OpeningDate(String account_OpeningDate) {
+        this.account_OpeningDate = account_OpeningDate;
+    }
+
+    public String getModeOfOperation() {
+        return modeOfOperation;
+    }
+
+    public void setModeOfOperation(String modeOfOperation) {
+        this.modeOfOperation = modeOfOperation;
+    }
+
+    public boolean isInternet_Banking() {
+        return internet_Banking;
+    }
+
+    public void setInternet_Banking(boolean internet_Banking) {
+        this.internet_Banking = internet_Banking;
+    }
+
+    public abstract double calculateInterest();
 }

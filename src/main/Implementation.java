@@ -1,29 +1,24 @@
 package main;
 
-import data.FixedDeposit;
+
+import data.RecurringDeposit;
 import data.SavingsAccount;
 
 public class Implementation {
     public static void main(String[] args) {
-        SavingsAccount sa = new SavingsAccount(234567891215L,"Rajat",50000,"Active",2.5);
-        FixedDeposit fd = new FixedDeposit(2366784899299L,"Shagnik",60000,"Active",10000,10550,5.5,10);
-        System.out.println("Dislaying savings class ");
-        System.out.println();
-        sa.display1();
-        sa.display2();
-        System.out.println();
-        System.out.println("Displaying Fixed deposit class");
-        System.out.println();
-        fd.display3();
-        fd.display1();
-        System.out.println();
-        System.out.println("Displaying methods ");
+        SavingsAccount sa = new SavingsAccount(234567891215L,"Rajat",50000,"Active","03/02/2022","Self",true,3);
+        RecurringDeposit rd = new RecurringDeposit(34565657767766L,"Sanjana",5000,"Active","23/06/2022","Self",true,10000,14000,10,4);
+        double res1 = sa.calculateInterest();
+        System.out.println("Savings Account interest calculation = " + res1);
+        double res2 = rd.calculateInterest();
+        System.out.println("Reccuring deposit interest calculation = " + res2);
+        System.out.println("Displaying Operations performed by savings account  ");
         System.out.println();
         System.out.println("Check Balance = " + sa.checkBalance());
         System.out.println("credit Balance = " + sa.creditBalance(5000));
         System.out.println("debit Balance = " + sa.debitBalance(3000));
 
-        System.out.println("Yearly interest Calculation = " + fd.interestCalculation());
+
 
     }
 

@@ -3,8 +3,8 @@ package data;
 public class SavingsAccount extends Account{
     private double interestRate;
 
-    public SavingsAccount(long accountNumber, String accountHolderName, double accountBalance, String accountStatus, double interestRate) {
-        super(accountNumber, accountHolderName, accountBalance, accountStatus);
+    public SavingsAccount(long accountNumber, String accountHolderName, double accountBalance, String accountStatus, String account_OpeningDate, String modeOfOperation, boolean internet_Banking, double interestRate) {
+        super(accountNumber, accountHolderName, accountBalance, accountStatus, account_OpeningDate, modeOfOperation, internet_Banking);
         this.interestRate = interestRate;
     }
 
@@ -15,6 +15,7 @@ public class SavingsAccount extends Account{
     public void setInterestRate(double interestRate) {
         this.interestRate = interestRate;
     }
+
     public double checkBalance(){
         return getAccountBalance();
     }
@@ -24,7 +25,12 @@ public class SavingsAccount extends Account{
     public double debitBalance(double debitAmount){
         return getAccountBalance() - debitAmount;
     }
-    public void display2(){
-        System.out.println("interestRate = " + interestRate);
+
+
+    @Override
+    public double calculateInterest() {
+        double interestGain  = 0;
+        interestGain = getAccountBalance() * getInterestRate() / 100;
+        return interestGain;
     }
 }
